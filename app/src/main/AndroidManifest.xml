@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.androidrecyclerviewgoogleplay">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".WineWine2Activity"></activity>
+        <activity android:name=".WineWine1Activity" />
+        <activity android:name=".PizzaPizaa2Activity" />
+        <activity android:name=".PizzaPizza1Activity" />
+        <activity android:name=".DrinkDrink2Activity" />
+        <activity android:name=".DrinkDrink1Activity" />
+        <activity android:name=".FruitsCherryActivity" />
+        <activity android:name=".FruitsBananaActivity" />
+        <activity android:name=".FruitsWatermellonActivity" />
+        <activity android:name=".FruitsAppleActivity" />
+        <activity android:name=".FruitsOrangeActivity" />
+        <activity android:name=".ActivityOne" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
