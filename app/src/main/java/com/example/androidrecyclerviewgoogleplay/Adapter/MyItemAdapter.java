@@ -52,14 +52,13 @@ public class MyItemAdapter extends RecyclerView.Adapter<MyItemAdapter.MyViewHold
         Picasso.get().load(itemDataList.get(position).getImage()).into(holder.img_item);
 
         // do not forget implement item click
-        final int finalI=position;
         holder.setiItemClickListener(new IItemClickListener() {
             @Override
             public void onItemClickListener(View view, int position) {
-
+                final int finalI=position;
                 //Toast.makeText(context, ""+itemDataList.get(position).getName(), Toast.LENGTH_SHORT).show();
-                if(finalI == 0){
-                    Intent intent = new Intent(context,FruitsOrangeActivity.class);
+                if(finalI ==0){
+                    Intent intent = new Intent(view.getContext(),FruitsOrangeActivity.class);
                     context.startActivity(intent);
                 }
                 else if (finalI == 1){
