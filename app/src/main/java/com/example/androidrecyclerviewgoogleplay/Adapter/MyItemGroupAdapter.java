@@ -1,6 +1,7 @@
 package com.example.androidrecyclerviewgoogleplay.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +13,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.androidrecyclerviewgoogleplay.FruitsAppleActivity;
+import com.example.androidrecyclerviewgoogleplay.FruitsBananaActivity;
+import com.example.androidrecyclerviewgoogleplay.FruitsCherryActivity;
+import com.example.androidrecyclerviewgoogleplay.FruitsOrangeActivity;
+import com.example.androidrecyclerviewgoogleplay.FruitsWatermellonActivity;
 import com.example.androidrecyclerviewgoogleplay.Model.ItemData;
 import com.example.androidrecyclerviewgoogleplay.Model.ItemGroup;
+import com.example.androidrecyclerviewgoogleplay.PizzaPizaa2Activity;
+import com.example.androidrecyclerviewgoogleplay.PizzaPizza1Activity;
 import com.example.androidrecyclerviewgoogleplay.R;
 
 import java.util.List;
@@ -52,7 +60,31 @@ public class MyItemGroupAdapter extends RecyclerView.Adapter<MyItemGroupAdapter.
         holder.btn_more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Button More"+holder.item_title.getText(), Toast.LENGTH_SHORT).show();
+               // Toast.makeText(context, "Button More"+holder.item_title.getText(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(),"position = " + holder.getLayoutPosition(), Toast.LENGTH_SHORT).show();
+
+                //go through each item if you have few items within recycler view
+                if(holder.getAdapterPosition()==0){
+                    //Do whatever you want
+                    Intent intent = new Intent(context, FruitsOrangeActivity.class);
+                    context.startActivity(intent);
+
+                }else if(holder.getLayoutPosition()==1){
+                    //Do whatever you want here
+                    Intent intent = new Intent(context, FruitsAppleActivity.class);
+                    context.startActivity(intent);
+
+                }else if(holder.getLayoutPosition()==2){
+                    Intent intent = new Intent(context, FruitsWatermellonActivity.class);
+                    context.startActivity(intent);
+
+                }else if(holder.getLayoutPosition()==3){
+                    Intent intent = new Intent(context, FruitsBananaActivity.class);
+                    context.startActivity(intent);
+                }
+                else{
+                    Toast.makeText(v.getContext(),"position = " + holder.getLayoutPosition(), Toast.LENGTH_SHORT).show();
+                }
 
             }
         });

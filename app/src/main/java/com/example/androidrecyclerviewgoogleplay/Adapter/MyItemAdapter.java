@@ -55,62 +55,63 @@ public class MyItemAdapter extends RecyclerView.Adapter<MyItemAdapter.MyViewHold
         holder.setiItemClickListener(new IItemClickListener() {
             @Override
             public void onItemClickListener(View view, int position) {
-                final int finalI=position;
+               // final int finalI=position;
                 //Toast.makeText(context, ""+itemDataList.get(position).getName(), Toast.LENGTH_SHORT).show();
-                if(finalI ==0){
+                Toast.makeText(view.getContext(),"position = " + holder.getLayoutPosition(), Toast.LENGTH_SHORT).show();
+                if(holder.getAdapterPosition()==0){
                     Intent intent = new Intent(view.getContext(),FruitsOrangeActivity.class);
                     context.startActivity(intent);
                 }
-                else if (finalI == 1){
-                    Intent intent = new Intent(context, FruitsAppleActivity.class);
+                else if (holder.getAdapterPosition()== 1){
+                    Intent intent = new Intent(view.getContext(), FruitsAppleActivity.class);
                     context.startActivity(intent);
-                }else if (finalI == 2){
-                    Intent intent = new Intent(context, FruitsWatermellonActivity.class);
-                    context.startActivity(intent);
-                }
-                else if (finalI == 3){
-                    Intent intent = new Intent(context, FruitsBananaActivity.class);
+                }else if (holder.getAdapterPosition() == 2){
+                    Intent intent = new Intent(view.getContext(), FruitsWatermellonActivity.class);
                     context.startActivity(intent);
                 }
-                else if (finalI == 4){
-                    Intent intent = new Intent(context, FruitsCherryActivity.class);
+                else if (holder.getAdapterPosition()== 3){
+                    Intent intent = new Intent(view.getContext(), FruitsBananaActivity.class);
                     context.startActivity(intent);
                 }
-                else if (finalI == 5){
+                else if (holder.getAdapterPosition()== 4){
+                    Intent intent = new Intent(view.getContext(), FruitsCherryActivity.class);
+                    context.startActivity(intent);
+                }
+                else if (holder.getAdapterPosition()== 5){
                     Intent intent = new Intent(context, PizzaPizza1Activity.class);
                     context.startActivity(intent);
                 }
-                else if (finalI == 6){
-                    Intent intent = new Intent(context, PizzaPizaa2Activity.class);
+                else if (holder.getAdapterPosition() == 6){
+                    Intent intent = new Intent(view.getContext(), PizzaPizaa2Activity.class);
                     context.startActivity(intent);
                     //  .
                     //Continue
                     //  .
                 }
-                else if (finalI == 10){
-                    Intent intent = new Intent(context, DrinkDrink1Activity.class);
+                else if (holder.getAdapterPosition()== 10){
+                    Intent intent = new Intent(view.getContext(), DrinkDrink1Activity.class);
                     context.startActivity(intent);
                 }
-                else if (finalI == 11){
-                    Intent intent = new Intent(context, DrinkDrink2Activity.class);
+                else if (holder.getAdapterPosition() == 11){
+                    Intent intent = new Intent(view.getContext(), DrinkDrink2Activity.class);
                     context.startActivity(intent);
                     //  .
                     //Continue
                     //  .
                 }
-                else if (finalI == 16){
-                    Intent intent = new Intent(context, WineWine1Activity.class);
+                else if (holder.getAdapterPosition()== 16){
+                    Intent intent = new Intent(view.getContext(), WineWine1Activity.class);
                     context.startActivity(intent);
                 }
-                else if (finalI == 17){
-                    Intent intent = new Intent(context, WineWine2Activity.class);
+                else if (holder.getAdapterPosition()== 17){
+                    Intent intent = new Intent(view.getContext(), WineWine2Activity.class);
                     context.startActivity(intent);
                     //  .
                     //Continue
                     //  .
                 }
                 else {
-                    Toast.makeText(context, "No Match", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(view.getContext(), "No Match", Toast.LENGTH_SHORT).show();
                 }
             }
         });
