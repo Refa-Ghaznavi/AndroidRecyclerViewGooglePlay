@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WineWine2Activity"></activity>
+        <activity android:name=".PizzaPizza5Activity"></activity>
+        <activity android:name=".PizzaPizza4Activity" />
+        <activity android:name=".PizzaPizza3" />
+        <activity android:name=".WineWine2Activity" />
         <activity android:name=".WineWine1Activity" />
         <activity android:name=".PizzaPizaa2Activity" />
         <activity android:name=".PizzaPizza1Activity" />
@@ -22,7 +25,6 @@
         <activity android:name=".FruitsWatermellonActivity" />
         <activity android:name=".FruitsAppleActivity" />
         <activity android:name=".FruitsOrangeActivity" />
-        <activity android:name=".ActivityOne" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

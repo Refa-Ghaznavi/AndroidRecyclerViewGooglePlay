@@ -70,7 +70,6 @@ public class MyItemGroupAdapter extends RecyclerView.Adapter<MyItemGroupAdapter.
                     context.startActivity(intent);
 
                 }else if(holder.getLayoutPosition()==1){
-                    //Do whatever you want here
                     Intent intent = new Intent(context, FruitsAppleActivity.class);
                     context.startActivity(intent);
 
