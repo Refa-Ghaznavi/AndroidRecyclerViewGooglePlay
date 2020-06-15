@@ -22,6 +22,9 @@ import com.example.androidrecyclerviewgoogleplay.Model.ItemData;
 import com.example.androidrecyclerviewgoogleplay.Model.ItemGroup;
 import com.example.androidrecyclerviewgoogleplay.PizzaPizaa2Activity;
 import com.example.androidrecyclerviewgoogleplay.PizzaPizza1Activity;
+import com.example.androidrecyclerviewgoogleplay.PizzaPizza3;
+import com.example.androidrecyclerviewgoogleplay.PizzaPizza4Activity;
+import com.example.androidrecyclerviewgoogleplay.PizzaPizza5Activity;
 import com.example.androidrecyclerviewgoogleplay.R;
 
 import java.util.List;
@@ -46,47 +49,94 @@ public class MyItemGroupAdapter extends RecyclerView.Adapter<MyItemGroupAdapter.
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, int position) {
 
+
         holder.item_title.setText(dataList.get(position).getHeaderTitle());
         List<ItemData> itemData = dataList.get(position).getListItem();
+        if (position!=1){
+            MyItemAdapter itemListAdapter = new MyItemAdapter(context,itemData);
+            holder.recyclerView_item_list.setHasFixedSize(true);
+            holder.recyclerView_item_list.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false));
+            holder.recyclerView_item_list.setAdapter(itemListAdapter);
 
-        MyItemAdapter itemListAdapter = new MyItemAdapter(context,itemData);
-        holder.recyclerView_item_list.setHasFixedSize(true);
-        holder.recyclerView_item_list.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false));
-        holder.recyclerView_item_list.setAdapter(itemListAdapter);
+            holder.recyclerView_item_list.setNestedScrollingEnabled(false); // important
 
-        holder.recyclerView_item_list.setNestedScrollingEnabled(false); // important
-
-        // button more
-        holder.btn_more.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               // Toast.makeText(context, "Button More"+holder.item_title.getText(), Toast.LENGTH_SHORT).show();
-                Toast.makeText(v.getContext(),"position = " + holder.getLayoutPosition(), Toast.LENGTH_SHORT).show();
-
-                //go through each item if you have few items within recycler view
-                if(holder.getAdapterPosition()==0){
-                    //Do whatever you want
-                    Intent intent = new Intent(context, FruitsOrangeActivity.class);
-                    context.startActivity(intent);
-
-                }else if(holder.getLayoutPosition()==1){
-                    Intent intent = new Intent(context, FruitsAppleActivity.class);
-                    context.startActivity(intent);
-
-                }else if(holder.getLayoutPosition()==2){
-                    Intent intent = new Intent(context, FruitsWatermellonActivity.class);
-                    context.startActivity(intent);
-
-                }else if(holder.getLayoutPosition()==3){
-                    Intent intent = new Intent(context, FruitsBananaActivity.class);
-                    context.startActivity(intent);
-                }
-                else{
+            // button more
+            holder.btn_more.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Toast.makeText(context, "Button More"+holder.item_title.getText(), Toast.LENGTH_SHORT).show();
                     Toast.makeText(v.getContext(),"position = " + holder.getLayoutPosition(), Toast.LENGTH_SHORT).show();
-                }
 
-            }
-        });
+                    //go through each item if you have few items within recycler view
+                    if(holder.getAdapterPosition()==0){
+                        //Do whatever you want
+                        Intent intent = new Intent(context, FruitsOrangeActivity.class);
+                        context.startActivity(intent);
+
+                    }else if(holder.getLayoutPosition()==1){
+                        Intent intent = new Intent(context, FruitsAppleActivity.class);
+                        context.startActivity(intent);
+
+                    }else if(holder.getLayoutPosition()==2){
+                        Intent intent = new Intent(context, FruitsWatermellonActivity.class);
+                        context.startActivity(intent);
+
+                    }else if(holder.getLayoutPosition()==3){
+                        Intent intent = new Intent(context, FruitsBananaActivity.class);
+                        context.startActivity(intent);
+                    }
+                    else{
+                        Toast.makeText(v.getContext(),"position = " + holder.getLayoutPosition(), Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            });
+
+        }
+        else if (position==1){
+
+            MyItemAdapterTwo itemListAdapter = new MyItemAdapterTwo(context,itemData);
+            holder.recyclerView_item_list.setHasFixedSize(true);
+            holder.recyclerView_item_list.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false));
+            holder.recyclerView_item_list.setAdapter(itemListAdapter);
+
+            holder.recyclerView_item_list.setNestedScrollingEnabled(false); // important
+
+            // button more
+            holder.btn_more.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    Toast.makeText(view.getContext(),"position = " + holder.getLayoutPosition(), Toast.LENGTH_SHORT).show();
+                    if(holder.getAdapterPosition()==0){
+                        Intent intent = new Intent(view.getContext(), PizzaPizza1Activity.class);
+                        context.startActivity(intent);
+                    }
+                    else if (holder.getAdapterPosition()== 1){
+                        Intent intent = new Intent(context, PizzaPizaa2Activity.class);
+                        context.startActivity(intent);
+                    }
+                    else if (holder.getAdapterPosition() == 2){
+                        Intent intent = new Intent(view.getContext(), PizzaPizza3.class);
+                        context.startActivity(intent);
+                    }
+                    else if (holder.getAdapterPosition() == 3){
+                        Intent intent = new Intent(view.getContext(), PizzaPizza4Activity.class);
+                        context.startActivity(intent);
+                    }
+                    else if (holder.getAdapterPosition() == 4){
+                        Intent intent = new Intent(view.getContext(), PizzaPizza5Activity.class);
+                        context.startActivity(intent);
+                    }
+                    else {
+                        Toast.makeText(view.getContext(), "No Match", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
+
+
+        }
     }
 
     @Override
