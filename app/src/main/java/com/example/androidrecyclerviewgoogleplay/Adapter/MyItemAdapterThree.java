@@ -11,8 +11,12 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.androidrecyclerviewgoogleplay.DrinkDrink1Activity;
 import com.example.androidrecyclerviewgoogleplay.DrinkDrink2Activity;
+import com.example.androidrecyclerviewgoogleplay.DrinkDrink3Activity;
+import com.example.androidrecyclerviewgoogleplay.DrinkDrink4Activity;
+import com.example.androidrecyclerviewgoogleplay.DrinkDrink5Activity;
 import com.example.androidrecyclerviewgoogleplay.FruitsAppleActivity;
 import com.example.androidrecyclerviewgoogleplay.FruitsBananaActivity;
 import com.example.androidrecyclerviewgoogleplay.FruitsCherryActivity;
@@ -22,6 +26,9 @@ import com.example.androidrecyclerviewgoogleplay.Interface.IItemClickListener;
 import com.example.androidrecyclerviewgoogleplay.Model.ItemData;
 import com.example.androidrecyclerviewgoogleplay.PizzaPizaa2Activity;
 import com.example.androidrecyclerviewgoogleplay.PizzaPizza1Activity;
+import com.example.androidrecyclerviewgoogleplay.PizzaPizza3;
+import com.example.androidrecyclerviewgoogleplay.PizzaPizza4Activity;
+import com.example.androidrecyclerviewgoogleplay.PizzaPizza5Activity;
 import com.example.androidrecyclerviewgoogleplay.R;
 import com.example.androidrecyclerviewgoogleplay.WineWine1Activity;
 import com.example.androidrecyclerviewgoogleplay.WineWine2Activity;
@@ -29,12 +36,12 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class MyItemAdapter extends RecyclerView.Adapter<MyItemAdapter.MyViewHolder> {
+public class MyItemAdapterThree extends RecyclerView.Adapter<MyItemAdapterThree.MyViewHolder> {
 
     private Context context;
     private List<ItemData> itemDataList;
 
-    public MyItemAdapter(Context context, List<ItemData> itemDataList) {
+    public MyItemAdapterThree(Context context, List<ItemData> itemDataList) {
         this.context = context;
         this.itemDataList = itemDataList;
     }
@@ -48,33 +55,33 @@ public class MyItemAdapter extends RecyclerView.Adapter<MyItemAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, int position) {
-            holder.txt_item_title.setText(itemDataList.get(position).getName());
+        holder.txt_item_title.setText(itemDataList.get(position).getName());
         Picasso.get().load(itemDataList.get(position).getImage()).into(holder.img_item);
 
         // do not forget implement item click
         holder.setiItemClickListener(new IItemClickListener() {
             @Override
             public void onItemClickListener(View view, int position) {
-               // final int finalI=position;
-                //Toast.makeText(context, ""+itemDataList.get(position).getName(), Toast.LENGTH_SHORT).show();
+
                 Toast.makeText(view.getContext(),"position = " + holder.getLayoutPosition(), Toast.LENGTH_SHORT).show();
                 if(holder.getAdapterPosition()==0){
-                    Intent intent = new Intent(view.getContext(),FruitsOrangeActivity.class);
+                    Intent intent = new Intent(view.getContext(), DrinkDrink1Activity.class);
                     context.startActivity(intent);
                 }
                 else if (holder.getAdapterPosition()== 1){
-                    Intent intent = new Intent(view.getContext(), FruitsAppleActivity.class);
-                    context.startActivity(intent);
-                }else if (holder.getAdapterPosition() == 2){
-                    Intent intent = new Intent(view.getContext(), FruitsWatermellonActivity.class);
+                    Intent intent = new Intent(context, DrinkDrink2Activity.class);
                     context.startActivity(intent);
                 }
-                else if (holder.getAdapterPosition()== 3){
-                    Intent intent = new Intent(view.getContext(), FruitsBananaActivity.class);
+                else if (holder.getAdapterPosition() == 2){
+                    Intent intent = new Intent(view.getContext(), DrinkDrink3Activity.class);
                     context.startActivity(intent);
                 }
-                else if (holder.getAdapterPosition()== 4){
-                    Intent intent = new Intent(view.getContext(), FruitsCherryActivity.class);
+                else if (holder.getAdapterPosition() == 3){
+                    Intent intent = new Intent(view.getContext(), DrinkDrink4Activity.class);
+                    context.startActivity(intent);
+                }
+                else if (holder.getAdapterPosition() == 4){
+                    Intent intent = new Intent(view.getContext(), DrinkDrink5Activity.class);
                     context.startActivity(intent);
                 }
                 else {
@@ -108,7 +115,7 @@ public class MyItemAdapter extends RecyclerView.Adapter<MyItemAdapter.MyViewHold
         }
         @Override
         public void onClick(View view){
-           iItemClickListener.onItemClickListener(view,getAdapterPosition());
+            iItemClickListener.onItemClickListener(view,getAdapterPosition());
         }
     }
 }

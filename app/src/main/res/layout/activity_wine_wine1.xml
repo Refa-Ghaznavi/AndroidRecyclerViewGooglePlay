@@ -13,7 +13,7 @@
         android:layout_marginStart="167dp"
         android:layout_marginLeft="167dp"
         android:layout_marginBottom="341dp"
-        android:text="TextView"
+        android:text="WineWine1Activity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
