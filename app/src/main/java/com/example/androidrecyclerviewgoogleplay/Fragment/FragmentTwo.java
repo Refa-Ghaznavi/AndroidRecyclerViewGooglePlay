@@ -1,18 +1,21 @@
-package com.example.androidrecyclerviewgoogleplay;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+package com.example.androidrecyclerviewgoogleplay.Fragment;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
-import android.widget.Toast;
 
-import com.example.androidrecyclerviewgoogleplay.Adapter.MyItemGroupAdapter;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
 import com.example.androidrecyclerviewgoogleplay.Interface.IFirebaseLoadListener;
 import com.example.androidrecyclerviewgoogleplay.Model.ItemData;
 import com.example.androidrecyclerviewgoogleplay.Model.ItemGroup;
+import com.example.androidrecyclerviewgoogleplay.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,37 +28,44 @@ import java.util.List;
 
 import dmax.dialog.SpotsDialog;
 
-public class MainActivity extends AppCompatActivity implements IFirebaseLoadListener {
+public class FragmentTwo extends Fragment implements IFirebaseLoadListener {
+
+    View v;
 
     AlertDialog dialog;
     IFirebaseLoadListener iFirebaseLoadListener;
 
-    RecyclerView my_recycler_view;
+    RecyclerView my_recycler_view_two;
+
 
     DatabaseReference myData;
 
+    public FragmentTwo() {
+        // Required empty public constructor
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        v = inflater.inflate(R.layout.fragment_two, container, false);
+
         // init
         myData = FirebaseDatabase.getInstance().getReference("MyData");
-        dialog = new SpotsDialog.Builder().setContext(this).build();
+        dialog = new SpotsDialog.Builder().setContext(getActivity()).build();
         iFirebaseLoadListener = this;
 
         // view
-        my_recycler_view = findViewById(R.id.my_recycler_view);
-        my_recycler_view.setHasFixedSize(true);
-        my_recycler_view.setLayoutManager(new LinearLayoutManager(this));
+        my_recycler_view_two = (RecyclerView)v. findViewById(R.id.my_recycler_view_two);
+        my_recycler_view_two.setHasFixedSize(true);
+        my_recycler_view_two.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-
-
-        // load data
         getFirebaseData();
 
+        return v;
     }
 
     private void getFirebaseData() {
+
         dialog.show();
         myData.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -80,15 +90,11 @@ public class MainActivity extends AppCompatActivity implements IFirebaseLoadList
 
     @Override
     public void onFirebaseLoadSuccess(List<ItemGroup> itemGroupList) {
-        MyItemGroupAdapter adapter = new MyItemGroupAdapter(this,itemGroupList);
-        my_recycler_view.setAdapter(adapter);
 
-        dialog.dismiss();
     }
 
     @Override
     public void onFirebaseLoadFailed(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-        dialog.dismiss();
+
     }
 }

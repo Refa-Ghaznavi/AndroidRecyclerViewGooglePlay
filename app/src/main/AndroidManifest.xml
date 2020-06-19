@@ -11,7 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WineMoreActivity"></activity>
+        <activity android:name=".TabLayoutActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".WineMoreActivity" />
         <activity android:name=".DrinkMoreActivity" />
         <activity android:name=".PizzaMoreActivity" />
         <activity android:name=".FruitsMoreActivity" />
@@ -35,13 +42,6 @@
         <activity android:name=".FruitsWatermellonActivity" />
         <activity android:name=".FruitsAppleActivity" />
         <activity android:name=".FruitsOrangeActivity" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>

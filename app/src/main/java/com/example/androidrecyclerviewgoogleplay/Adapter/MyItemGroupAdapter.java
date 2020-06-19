@@ -12,34 +12,14 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.androidrecyclerviewgoogleplay.DrinkDrink1Activity;
-import com.example.androidrecyclerviewgoogleplay.DrinkDrink2Activity;
-import com.example.androidrecyclerviewgoogleplay.DrinkDrink3Activity;
-import com.example.androidrecyclerviewgoogleplay.DrinkDrink4Activity;
-import com.example.androidrecyclerviewgoogleplay.DrinkDrink5Activity;
 import com.example.androidrecyclerviewgoogleplay.DrinkMoreActivity;
-import com.example.androidrecyclerviewgoogleplay.FruitsAppleActivity;
-import com.example.androidrecyclerviewgoogleplay.FruitsBananaActivity;
-import com.example.androidrecyclerviewgoogleplay.FruitsCherryActivity;
 import com.example.androidrecyclerviewgoogleplay.FruitsMoreActivity;
-import com.example.androidrecyclerviewgoogleplay.FruitsOrangeActivity;
-import com.example.androidrecyclerviewgoogleplay.FruitsWatermellonActivity;
 import com.example.androidrecyclerviewgoogleplay.Model.ItemData;
 import com.example.androidrecyclerviewgoogleplay.Model.ItemGroup;
 import com.example.androidrecyclerviewgoogleplay.PizzaMoreActivity;
-import com.example.androidrecyclerviewgoogleplay.PizzaPizaa2Activity;
-import com.example.androidrecyclerviewgoogleplay.PizzaPizza1Activity;
-import com.example.androidrecyclerviewgoogleplay.PizzaPizza3;
-import com.example.androidrecyclerviewgoogleplay.PizzaPizza4Activity;
-import com.example.androidrecyclerviewgoogleplay.PizzaPizza5Activity;
 import com.example.androidrecyclerviewgoogleplay.R;
 import com.example.androidrecyclerviewgoogleplay.WineMoreActivity;
-import com.example.androidrecyclerviewgoogleplay.WineWine1Activity;
-import com.example.androidrecyclerviewgoogleplay.WineWine2Activity;
-import com.example.androidrecyclerviewgoogleplay.WineWine3Activity;
-import com.example.androidrecyclerviewgoogleplay.WineWine4Activity;
-import com.example.androidrecyclerviewgoogleplay.WineWine5Activity;
+
 
 import java.util.List;
 
